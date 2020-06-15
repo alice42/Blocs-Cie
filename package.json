@@ -4,9 +4,10 @@
   "main": "src/index.js",
   "scripts": {
     "dev": "webpack-dev-server --mode development --open --hot",
-    "start": "npm run dev",
+    "start": "node server",
     "clean": "rm -rf node_modules",
-    "setup": "npm run clean && npm i"
+    "setup": "npm run clean && npm i",
+    "build": "webpack"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
