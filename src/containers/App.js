@@ -1,67 +1,32 @@
 import React from 'react'
 import data from '../data/data.json'
-import { timeStampToDate, totalDistance } from '../utils/functions'
+import Table from '@material-ui/core/Table'
+import TableBody from '@material-ui/core/TableBody'
+import TableCell from '@material-ui/core/TableCell'
+import TableContainer from '@material-ui/core/TableContainer'
+import TableHead from '@material-ui/core/TableHead'
+import TableRow from '@material-ui/core/TableRow'
+import Paper from '@material-ui/core/Paper'
+import Route from '../components/Route'
 
-const App = () => {
-  const [displayState, setDisplayState] = React.useState(false)
-  const handleDisplay = () => {
-    setDisplayState(!displayState)
-  }
-  return (
-    <div style={{ width: '100%', display: 'flex' }}>
-      {data.routes.map((route, index) => {
-        return (
-          <div
-            style={{
-              width: '100%',
-              display: 'flex',
-              flexDirection: 'column'
-            }}
-            key={`route_${index}`}
-            onClick={() => handleDisplay()}
-          >
-            <span> Path ID : {route.id}</span>
-            <span> Path Time stamp: {timeStampToDate(route.timestamp)}</span>
-            <span> Path Activity: {route.activity}</span>
-            <span> Path Locations: </span>
-
-            {displayState && (
-              <div>
-                <span>
-                  Path total distance: {totalDistance(route.locations)} (in
-                  meters)
-                </span>
-
-                {route.locations.map((location, index) => {
-                  return (
-                    <div
-                      style={{
-                        width: '100%',
-                        display: 'flex',
-                        flexDirection: 'column'
-                      }}
-                      key={`locations_${index}`}
-                    >
-                      <span>
-                        location TimeStamp :
-                        {timeStampToDate(location.timestamp)}
-                      </span>
-                      <span>
-                        location coords LONG :{location.coords.longitude}
-                      </span>
-                      <span>
-                        location coords LAT : {location.coords.latitude}
-                      </span>
-                    </div>
-                  )
-                })}
-              </div>
-            )}
-          </div>
-        )
-      })}
-    </div>
-  )
-}
+const App = () => (
+  <TableContainer component={Paper}>
+    <Table aria-label="collapsible table">
+      <TableHead>
+        <TableRow>
+          <TableCell />
+          <TableCell>Path ID</TableCell>
+          <TableCell align="right">Date</TableCell>
+          <TableCell align="right">Activity</TableCell>
+        </TableRow>
+      </TableHead>
+      <TableBody>
+        {data.routes.map(route => (
+          <Route key={`route_${route.id}`} route={route} />
+        ))}
+      </TableBody>
+    </Table>
+  </TableContainer>
+)
 
 export default App
