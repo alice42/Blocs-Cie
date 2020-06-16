@@ -1,42 +1,43 @@
 # Blocs-Cie
 
-Blocs-Cie is a really simple React.js app, showing one component (it was designed as a widget) displaying provided data
+Blocs-Cie is a simple SPA answering `BLOCS & Compagnie - Frontend dev - test`
+
+## Required
+
+- [node](https://nodejs.org/en/) (12.18.0, recommended)
+- [npm](https://www.npmjs.com/get-npm) (6.14.4, latest)
 
 ## Installation
 
 ```bash
-git clone https://github.com/alice42/Blocs-Cie.git
-cd Blocs-Cie
+git clone https://github.com/alice42/Blocs-Cie.git && cd Blocs-Cie
+npm run setup
 ```
-
-## Required
-
-- [node](https://nodejs.org/en/) (12.18.0, recommendended)
-- [npm](https://www.npmjs.com/get-npm) (6.14.4, latest)
 
 ## Usage
 
 ### development
 
 ```bash
-npm run setup
 npm run dev
 ```
 
-Application is running on http://localhost:8080/
+Application is running on http://localhost:8080
 
 ### build
 
 ```bash
-npm run setup
 npm run build
 ```
 
+Build files will be available in `${__dirname}/build`
+
 ### start
 
+❗️Don't forget to build project first!
+
 ```bash
-npm run setup
 npm run start
 ```
 
-Application is running on http://localhost:3000/
+Application is running on http://localhost:3000
